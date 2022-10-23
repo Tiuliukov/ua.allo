@@ -8,7 +8,7 @@ import java.time.Duration;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.page;
-import static core.BasePage.logo;
+import static core.MainPage.logo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 
