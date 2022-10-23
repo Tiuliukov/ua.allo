@@ -18,14 +18,35 @@ public class MainPage {
     }
 
     public static class userProfile {
-        private By userProfileIcon = By.cssSelector(".vi.i-header.vi__info");
+        private final By userProfileIcon = By.cssSelector(".vi.i-header.vi__info"),
+                        bonusesButton = By.cssSelector(".mh-profile .mh-button.bonuses"),
+                        ordersButton = By.cssSelector(".mh-button.orders"),
+                        viewedButton = By.cssSelector(".mh-button.viewed"),
+                        commentsButton = By.cssSelector(".mh-button.comments"),
+                        infoButton = By.cssSelector(".mh-button.info"),
+                        newsletterButton = By.cssSelector(".mh-button.newsletter"),
+                        servicesButton = By.cssSelector(".mh-button.services"),
+                        logoutButton = By.cssSelector(".mh-button.logout");
+
 
         public void openLoginPopup() {
             $(userProfileIcon).click();
         }
 
-        public void openRegistrationPopup() {
-
+        public userProfile openUserProfileMenu() {
+            $(userProfileIcon).click();
+            return this;
         }
+
+        public userProfile logout() {
+            $(logoutButton).click();
+            return this;
+        }
+
+        public userProfile openInfoMenu() {
+            $(infoButton).click();
+            return this;
+        }
+
     }
 }
