@@ -1,7 +1,6 @@
 package ua.allo;
 
 import com.codeborne.selenide.Condition;
-import core.ChromeDriverWeb;
 import org.junit.Test;
 
 import java.time.Duration;
@@ -12,10 +11,10 @@ import static core.MainPage.logo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 
-public class BaseTest extends ChromeDriverWeb {
+public class MainPageTest extends BaseConfig {
 
     @Test
-    public void baseTest() throws InterruptedException {
+    public void baseTest() {
         //Wait until main page visible
         logo.shouldBe(Condition.visible, Duration.ofSeconds(10));
     }
