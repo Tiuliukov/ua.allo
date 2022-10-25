@@ -21,4 +21,13 @@ public class LoginPopup {
         $(".account-login .modal-submit-button").click();
         return this;
     }
+
+    public void clickOnClose(){
+        $(".v-modal__close-btn .vi.i-shared.vi__close").click();
+    }
+
+    public LoginPopup cleanLoginField(){
+        $("#auth").clear();
+        return this;
+    }
 }
