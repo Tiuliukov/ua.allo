@@ -1,16 +1,14 @@
 package ua.allo;
 
 import com.codeborne.selenide.Condition;
-import core.ChromeDriverWeb;
 import core.LoginPopup;
 import org.junit.Test;
 
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.sleep;
 import static core.MainPage.*;
 
 
-public class LoginPopupTests extends ChromeDriverWeb {
+public class LoginPopupTests extends BaseConfig {
 
 
     @Test
