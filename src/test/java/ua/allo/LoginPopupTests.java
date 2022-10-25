@@ -59,18 +59,33 @@ public class LoginPopupTests extends BaseConfig {
 
     @Test
     public void FailedLoginTest() {
-        var FailedLoginEmailText = "Користувач з email failedLogin.aqa@gmail.com не зареєстрований. Будь ласка, зареєструйтесь чи авторизуйтесь за допомогою номеру телефона.\n";
-        var FailedLoginInvalidEmailText = "Будь ласка, вкажіть коректний email";
-        var FailedLoginPhoneText = "Номер телефону +380503412340 недоступний для авторизації. Увійдіть під іншим номером або зареєструйтесь.";
+        var FailedLoginEmailError = "Користувач з email failedLogin.aqa@gmail.com не зареєстрований. Будь ласка, зареєструйтесь чи авторизуйтесь за допомогою номеру телефона.\n";
+        var FailedLoginInvalidEmailError = "Будь ласка, вкажіть коректний email";
+        var FailedLoginPhoneError = "Номер телефону +380503412340 недоступний для авторизації. Увійдіть під іншим номером або зареєструйтесь.";
+        var EmptyFieldError = "Це поле є обов'язковим для заповнення.";
+
+        new userProfile()
+                .openLoginPopup();
+        new LoginPopup()
+                .clickOnLogin();
+
+                                         /* Need fix selector. May be unstable */
+
+        $("[type='login'] .validation-advice.v-validation-error").shouldHave(Condition.text(EmptyFieldError));
+        $("#form-validate-login :nth-child(4)").shouldHave(Condition.text(EmptyFieldError));
+        new LoginPopup()
+                .clickOnClose();
+
         new userProfile()
                 .openLoginPopup();
         new LoginPopup()
                 .fillLogin("failedLogin.aqa@gmail.com")
                 .fillPassword("IvCUZ4qv5")
                 .clickOnLogin();
-        $(".validation-advice.v-validation-error div").shouldHave(Condition.text(FailedLoginEmailText));
+        $(".validation-advice.v-validation-error div").shouldHave(Condition.text(FailedLoginEmailError));
         new LoginPopup()
                 .clickOnClose();
+
         new userProfile()
                 .openLoginPopup();
         new LoginPopup()
@@ -78,9 +93,10 @@ public class LoginPopupTests extends BaseConfig {
                 .fillLogin("failedLogin")
                 .fillPassword("IvCUZ4qv5")
                 .clickOnLogin();
-        $(".validation-advice.v-validation-error div").shouldHave(Condition.text(FailedLoginInvalidEmailText));
+        $(".validation-advice.v-validation-error div").shouldHave(Condition.text(FailedLoginInvalidEmailError));
         new LoginPopup()
                 .clickOnClose();
+
         new userProfile()
                 .openLoginPopup();
         new LoginPopup()
@@ -88,6 +104,6 @@ public class LoginPopupTests extends BaseConfig {
                 .fillLogin("+380503412340")
                 .fillPassword("IvCUZ4qv5")
                 .clickOnLogin();
-        $(".validation-advice.v-validation-error div").shouldHave(Condition.text(FailedLoginPhoneText));
+        $(".validation-advice.v-validation-error div").shouldHave(Condition.text(FailedLoginPhoneError));
     }
 }
