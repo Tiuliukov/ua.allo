@@ -5,7 +5,6 @@ import com.codeborne.selenide.SelenideElement;
 import static com.codeborne.selenide.Selenide.$;
 
 public class LoginPopup {
-    public static SelenideElement accountIcon = $(".mh__sr .v-logo");
 
     public LoginPopup fillLogin(String input){
         $("#auth").val(input);
@@ -24,6 +23,10 @@ public class LoginPopup {
 
     public void clickOnClose(){
         $(".v-modal__close-btn .vi.i-shared.vi__close").click();
+    }
+
+    public void openRegistrationPopup(){
+        $(".customer-tabs :nth-child(2)").click();
     }
 
     public LoginPopup cleanLoginField(){
