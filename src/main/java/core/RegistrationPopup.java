@@ -8,7 +8,22 @@ public class RegistrationPopup {
     }
 
     public RegistrationPopup clickOnRegistration(){
-        $(".account-login .modal-submit-button").click();
+        $("#form-validate-register .modal-submit-button").click();
+        return this;
+    }
+
+    public RegistrationPopup fillName(String input){
+        $("#v-register-name").val(input);
+        return this;
+    }
+
+    public RegistrationPopup fillPhone(String input){
+        $("#v-register_telephone_number").val(input);
+        return this;
+    }
+
+    public RegistrationPopup fillPassword(String input){
+        $("#vregister-password").val(input);
         return this;
     }
 }
