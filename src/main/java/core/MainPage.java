@@ -13,7 +13,6 @@ public class MainPage {
     public static void selectUALanguage() {
         if (uaLanguage.is(Condition.visible)) {
             uaLanguage.click();
-            logo.shouldHave(Condition.visible);
         }
     }
 
@@ -38,9 +37,8 @@ public class MainPage {
             return this;
         }
 
-        public userProfile logout() {
+        public void logout() {
             $(logoutButton).click();
-            return this;
         }
 
         public userProfile openInfoMenu() {
@@ -49,4 +47,17 @@ public class MainPage {
         }
 
     }
+
+    public void openLocation() {
+        $(".mh .mh-loc").click();
+    }
+
+    public String getLocation() {
+        return $(".mh-loc .mh-loc__label").getText();
+    }
+
+    public void openStoresPage() {
+        $(".mh-links a[href='https://allo.ua/ua/offline_stores/']").click();
+    }
+
 }
