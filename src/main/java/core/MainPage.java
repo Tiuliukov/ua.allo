@@ -9,6 +9,7 @@ import static com.codeborne.selenide.Selenide.$;
 public class MainPage {
     public static SelenideElement logo = $(".mh__sr .v-logo");
     public static SelenideElement uaLanguage = $(".mh-lang :nth-child(2)");
+    public static SelenideElement ruLanguage = $(".mh-lang :nth-child(1)");
 
     public static void selectUALanguage() {
         if (uaLanguage.is(Condition.visible)) {
@@ -60,4 +61,13 @@ public class MainPage {
         $(".mh-links a[href='https://allo.ua/ua/offline_stores/']").click();
     }
 
+    public void openContactsPopup() {
+        $(".mh .mh__fr .mh-phone .mh-button").click();
+    }
+    public void chooseUALanguage() {
+        $(uaLanguage).click();
+    }
+    public void chooseRULanguage() {
+        $(ruLanguage).click();
+    }
 }
