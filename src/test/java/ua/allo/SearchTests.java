@@ -1,0 +1,41 @@
+package ua.allo;
+
+import com.codeborne.selenide.CollectionCondition;
+import com.codeborne.selenide.Selectors;
+import com.codeborne.selenide.SelenideElement;
+import core.MainPage;
+import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selectors.*;
+import static com.codeborne.selenide.Selenide.*;
+
+public class SearchTests extends BaseConfig{
+    @Test
+    public void SearchProductByTitleAndAddToCartTest() {
+        var productName = "Google Pixel 6";
+        var productIdOne = "9298909";
+        var productIdTwo = "1195302";
+        $("#search-form__input").val(productName).pressEnter();
+        $(".b-crumbs__link :first-child").shouldHave(text(productName));
+        findProductById(productIdOne).$(".product-card__title").shouldHave(text(productName));
+        findProductById(productIdOne).$(".v-btn--cart").click();
+        $(".v-modal__close-btn .vi__close").click();
+        findProductById(productIdTwo).$(".v-btn--cart").click();
+        $(".cart-popup .v-modal__cmp-header-title").shouldHave(text("Кошик"));
+        $$(".cart-popup__content li").shouldHave(CollectionCondition.size(2));
+        $(".title .wrap").shouldHave(text(productName));
+    }
+    @Test
+    public void SearchProductByTitle() {
+        var productName = "Google Pixel 6";
+        new MainPage().searchFor(productName);
+        var actualResultTitle = new searchResultPage().getSearchResulttiitle();
+        Assertions.assertEquals(productName,actualResultTitle);
+    }
+
+    private SelenideElement findProductById(String productId) {
+        return $(by("data-product-id", productId));
+    }
+}

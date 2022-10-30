@@ -17,6 +17,10 @@ public class MainPage {
         }
     }
 
+    public void searchFor(String searchQuery) {
+        $("#search-form__input").val(searchQuery).pressEnter();
+    }
+
     public static class userProfile {
         private final By userProfileIcon = By.cssSelector(".vi.i-header.vi__info"),
                         bonusesButton = By.cssSelector(".mh-profile .mh-button.bonuses"),
