@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selenide.$;
 public class HeaderTests extends BaseConfig {
 
     @Test
-    public void changeLocationTests() {
+    public void changeLocationTest() {
         var lastCityName = "Ужгород";
         new MainPage()
                 .openLocation();
@@ -20,7 +20,7 @@ public class HeaderTests extends BaseConfig {
     }
 
     @Test
-    public void StoresTests() {
+    public void StoresTest() {
         var defaultTitle = "Адреса магазинів АЛЛО";
         var lastCityTitle = "Адреса магазинів АЛЛО у Ужгороді";
 
