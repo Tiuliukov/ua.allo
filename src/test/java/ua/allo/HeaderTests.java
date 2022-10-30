@@ -34,4 +34,25 @@ public class HeaderTests extends BaseConfig {
         $(".offline-stores-content .content__title").shouldHave(Condition.text(lastCityTitle));
 
     }
+
+    @Test
+    public void checkContactsTests() {
+        var phone_1 = "0 800 300 100";
+        var phone_2 = "(056) 790-12-34";
+        new MainPage()
+                .openContactsPopup();
+        $(".phone-block:nth-child(1) .phone-block__number:nth-child(2)").shouldHave(Condition.text(phone_1));
+        $(".phone-block:nth-child(2) .phone-block__number:nth-child(2)").shouldHave(Condition.text(phone_2));
+    }
+    @Test
+    public void changeLanguageTests() {
+        var ruText = "Магазины";
+        var uaText = "Магазини";
+        new MainPage()
+                .chooseRULanguage();
+        $(".mh-links a[href='https://allo.ua/ru/offline_stores/']").shouldHave(Condition.text(ruText));
+        new MainPage()
+                .chooseUALanguage();
+        $(".mh-links a[href='https://allo.ua/ua/offline_stores/']").shouldHave(Condition.text(uaText));
+    }
 }
