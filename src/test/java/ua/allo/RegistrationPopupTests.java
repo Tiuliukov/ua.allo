@@ -2,7 +2,7 @@ package ua.allo;
 
 import com.codeborne.selenide.Condition;
 import core.LoginPopup;
-import core.MainPage;
+import core.Header;
 import core.RegistrationPopup;
 import org.junit.Test;
 
@@ -13,7 +13,7 @@ public class RegistrationPopupTests extends BaseConfig{
     public void RequiredFieldsTest() {
         var EmptyFieldError = "Це поле є обов'язковим для заповнення.";
 
-        new MainPage.userProfile()
+        new Header.userProfile()
                 .openLoginPopup();
         new LoginPopup()
                 .openRegistrationPopup();
@@ -30,7 +30,7 @@ public class RegistrationPopupTests extends BaseConfig{
         var testPhone = "0511112233";
         var testName = "Test";
         var testPass = "Qwerty";
-        new MainPage.userProfile()
+        new Header.userProfile()
                 .openLoginPopup();
         new LoginPopup()
                 .openRegistrationPopup();
@@ -48,7 +48,7 @@ public class RegistrationPopupTests extends BaseConfig{
         var testPhone = "0985019780";
         var testName = "Test";
         var testPass = "Qwerty";
-        new MainPage.userProfile()
+        new Header.userProfile()
                 .openLoginPopup();
         new LoginPopup()
                 .openRegistrationPopup();

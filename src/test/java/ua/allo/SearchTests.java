@@ -1,9 +1,8 @@
 package ua.allo;
 
 import com.codeborne.selenide.CollectionCondition;
-import com.codeborne.selenide.Selectors;
 import com.codeborne.selenide.SelenideElement;
-import core.MainPage;
+import core.Header;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 
@@ -17,7 +16,8 @@ public class SearchTests extends BaseConfig{
         var productName = "Google Pixel 6";
         var productIdOne = "9298909";
         var productIdTwo = "1195302";
-        $("#search-form__input").val(productName).pressEnter();
+        new Header()
+                .searchFor(productName);
         $(".b-crumbs__link :first-child").shouldHave(text(productName));
         findProductById(productIdOne).$(".product-card__title").shouldHave(text(productName));
         findProductById(productIdOne).$(".v-btn--cart").click();
@@ -30,7 +30,7 @@ public class SearchTests extends BaseConfig{
     @Test
     public void SearchProductByTitle() {
         var productName = "Google Pixel 6";
-        new MainPage().searchFor(productName);
+        new Header().searchFor(productName);
         var actualResultTitle = new searchResultPage().getSearchResulttiitle();
         Assertions.assertEquals(productName,actualResultTitle);
     }
