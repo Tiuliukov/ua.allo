@@ -72,11 +72,15 @@ public class Header {
 
 
         public void openLoginPopup() {
-            $(userProfileIcon).click();
+            if ($(userProfileIcon).is(Condition.visible)) {
+                $(userProfileIcon).click();
+            }
         }
 
         public userProfile openUserProfileMenu() {
-            $(userProfileIcon).click();
+            if ($(userProfileIcon).is(Condition.visible)) {
+                $(userProfileIcon).click();
+            }
             return this;
         }
 
