@@ -2,7 +2,6 @@ package ua.allo;
 
 import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.SelenideElement;
-import core.Header;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 
@@ -31,7 +30,7 @@ public class SearchTests extends BaseConfig{
     public void SearchProductByTitle() {
         var productName = "Google Pixel 6";
         new Header().searchFor(productName);
-        var actualResultTitle = new searchResultPage().getSearchResulttiitle();
+        var actualResultTitle = new searchResultPage().getSearchResultTiitle();
         Assertions.assertEquals(productName,actualResultTitle);
     }
 

@@ -1,14 +1,12 @@
 package ua.allo;
 
 import com.codeborne.selenide.Condition;
-import core.LocationPopup;
-import core.Header;
 import org.junit.Test;
 
 import java.time.Duration;
 
 import static com.codeborne.selenide.Selenide.$;
-import static core.Header.logo;
+import static ua.allo.Header.logo;
 
 public class HeaderTests extends BaseConfig {
 
@@ -22,7 +20,7 @@ public class HeaderTests extends BaseConfig {
     public void changeLocationTest() {
         var lastCityName = "Ужгород";
         new Header()
-                .openLocation();
+                .openLocationPopup();
         new LocationPopup()
                 .chooseLastCity();
         $(".mh-loc .mh-loc__label").shouldHave(Condition.text(lastCityName));
@@ -37,7 +35,7 @@ public class HeaderTests extends BaseConfig {
                 .openStoresPage();
         $(".offline-stores-content .content__title").shouldHave(Condition.text(defaultTitle));
         new Header()
-                .openLocation();
+                .openLocationPopup();
         new LocationPopup()
                 .chooseLastCity();
         $(".offline-stores-content .content__title").shouldHave(Condition.text(lastCityTitle));

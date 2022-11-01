@@ -1,12 +1,11 @@
 package ua.allo;
 
 import com.codeborne.selenide.Condition;
-import core.Header;
-import core.LoginPopup;
 import org.junit.Test;
 
 import static com.codeborne.selenide.Selenide.$;
-import static core.Header.*;
+import static com.codeborne.selenide.Selenide.sleep;
+import static ua.allo.Header.*;
 
 
 public class LoginPopupTests extends BaseConfig {
@@ -16,13 +15,13 @@ public class LoginPopupTests extends BaseConfig {
     public void successLoginEmailTest() {
         var welcomeText = "Вітаємо, Test";
 
-        new Header.userProfile()
+        new userProfile()
                 .openLoginPopup();
         new LoginPopup()
                 .fillLogin("tmp.test.user.aqa@gmail.com")
                 .fillPassword("IvCUZ4qv5")
                 .clickOnLogin();
-        new Header.userProfile()
+        new userProfile()
                 .openUserProfileMenu()
                 .openInfoMenu();
         $(".customer-account .customer-account__title").shouldHave(Condition.text(welcomeText));
