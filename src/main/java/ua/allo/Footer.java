@@ -1,4 +1,4 @@
-package core;
+package ua.allo;
 
 public class Footer {
     public static class FooterSocial {

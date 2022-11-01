@@ -1,9 +1,6 @@
 package ua.allo;
 
 import com.codeborne.selenide.Condition;
-import core.LoginPopup;
-import core.Header;
-import core.RegistrationPopup;
 import org.junit.Test;
 
 import static com.codeborne.selenide.Selenide.$;

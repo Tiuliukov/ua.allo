@@ -1,12 +1,10 @@
 package ua.allo;
 
 import com.codeborne.selenide.Condition;
-import core.Header;
-import core.LoginPopup;
 import org.junit.Test;
 
 import static com.codeborne.selenide.Selenide.$;
-import static core.Header.*;
+import static ua.allo.Header.*;
 
 
 public class LoginPopupTests extends BaseConfig {

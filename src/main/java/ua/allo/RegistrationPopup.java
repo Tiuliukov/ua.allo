@@ -1,4 +1,4 @@
-package core;
+package ua.allo;
 
 import static com.codeborne.selenide.Selenide.$;
 
