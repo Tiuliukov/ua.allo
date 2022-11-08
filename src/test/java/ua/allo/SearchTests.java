@@ -26,12 +26,16 @@ public class SearchTests extends BaseConfig{
         $$(".cart-popup__content li").shouldHave(CollectionCondition.size(2));
         $(".title .wrap").shouldHave(text(productName));
     }
+
     @Test
     public void SearchProductByTitle() {
-        var productName = "Google Pixel 6";
+        var productName = "Google Pixel 6 8/256GB";
+
         new Header().searchFor(productName);
-        var actualResultTitle = new searchResultPage().getSearchResultTiitle();
-        Assertions.assertEquals(productName,actualResultTitle);
+
+        var actualSearchResultPageTitle = new searchResultPage().getSearchResultPageTiitle();
+        Assertions.assertEquals(productName,actualSearchResultPageTitle);
+        $(".product-card__content .product-card__title").shouldHave(text(productName));
     }
 
     private SelenideElement findProductById(String productId) {
