@@ -51,6 +51,7 @@ public class HeaderTests extends BaseConfig {
         $(".phone-block:nth-child(1) .phone-block__number:nth-child(2)").shouldHave(Condition.text(phone_1));
         $(".phone-block:nth-child(2) .phone-block__number:nth-child(2)").shouldHave(Condition.text(phone_2));
     }
+    
     @Test
     public void changeLanguageTests() {
         var ruText = "Магазины";
