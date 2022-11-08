@@ -27,6 +27,8 @@ public class SearchTests extends BaseConfig{
         $(".title .wrap").shouldHave(text(productName));
     }
 
+
+
     @Test
     public void SearchProductByTitle() {
         var productName = "Google Pixel 6 8/256GB";
