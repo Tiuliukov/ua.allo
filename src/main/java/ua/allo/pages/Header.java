@@ -1,4 +1,4 @@
-package ua.allo;
+package ua.allo.pages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
@@ -34,6 +34,7 @@ public class Header {
         $(".mh-links a[href$='/tradein/']").click();
     }
 
+    public SearchComponent searchComponent = new SearchComponent();
 
 
     public static class forBuyers {
@@ -52,12 +53,6 @@ public class Header {
     public void openContactsPopup() {
         $(".mh .mh__fr .mh-phone .mh-button").click();
     }
-
-    public void searchFor(String searchQuery) {
-        $("#search-form__input").val(searchQuery).pressEnter();
-    }
-
-
 
     public static class userProfile {
         private final By userProfileIcon = cssSelector(".vi.i-header.vi__info"),

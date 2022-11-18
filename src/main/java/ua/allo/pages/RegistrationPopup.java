@@ -1,4 +1,4 @@
-package ua.allo;
+package ua.allo.pages;
 
 import static com.codeborne.selenide.Selenide.$;
 
