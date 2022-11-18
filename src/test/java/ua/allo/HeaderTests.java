@@ -2,11 +2,13 @@ package ua.allo;
 
 import com.codeborne.selenide.Condition;
 import org.junit.Test;
+import ua.allo.pages.Header;
+import ua.allo.pages.LocationPopup;
 
 import java.time.Duration;
 
 import static com.codeborne.selenide.Selenide.$;
-import static ua.allo.Header.logo;
+import static ua.allo.pages.Header.logo;
 
 public class HeaderTests extends BaseConfig {
 
