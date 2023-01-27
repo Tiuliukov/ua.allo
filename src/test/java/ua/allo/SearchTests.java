@@ -1,6 +1,5 @@
 package ua.allo;
 
-import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.SelenideElement;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
