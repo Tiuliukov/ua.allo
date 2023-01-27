@@ -1,9 +1,6 @@
 package ua.allo;
 
 import org.junit.Test;
-import org.junit.jupiter.api.Assertions;
-import ua.allo.pages.CartPopup;
-import ua.allo.pages.ContentPage;
 import ua.allo.pages.Header;
 import ua.allo.pages.SearchResultPage;
 
